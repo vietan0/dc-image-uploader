@@ -1,6 +1,6 @@
 # Todo List
 
-- [ ] Connect to `postgres`
+- [x] Connect to `postgres`
 - [ ] Include unit & functional testing using `jest`
 - [ ] Install `ESLint`
 - [ ] Write frontend code
