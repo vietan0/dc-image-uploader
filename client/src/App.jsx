@@ -4,12 +4,7 @@ function App() {
   const [allImages, setAllImages] = useState([]);
   const [fetchCount, setFetchCount] = useState(0);
   const [selectedFile, setSelectedFile] = useState({});
-
-  // useEffect(() => {
-  //   fetch('/api')
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data));
-  // }, []);
+  const [uploadedImg, setUploadedImg] = useState();
 
   function getAllImages(e) {
     e.preventDefault();
@@ -27,18 +22,20 @@ function App() {
     }
   };
 
-  function uploadFile(e) {
+  async function uploadFile(e) {
     e.preventDefault();
 
     const formData = new FormData();
     formData.append('fileFromReact', selectedFile);
 
-    fetch('/api/images', {
+    const res = await fetch('/api/images', {
       method: 'POST',
       body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => console.log('POST response', data));
+    });
+
+    const postRes = await res.json();
+    const { destination, filename } = postRes.newRow;
+    setUploadedImg(destination.replace('client/', '') + '/' + filename);
   }
 
   return (
@@ -63,6 +60,12 @@ function App() {
             ? JSON.stringify(allImages, null, 2)
             : 'Press button to get images from Postgres'}
         </pre>
+        {uploadedImg && (
+          <img
+            src={uploadedImg}
+            alt="uploaded image"
+          />
+        )}
       </div>
     </main>
   );

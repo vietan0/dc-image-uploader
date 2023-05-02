@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
 const pool = require('./postgres');
 const multer = require('multer');
@@ -6,10 +7,11 @@ const { nanoid } = require('nanoid');
 const shell = require('shelljs');
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './server/uploaded-images');
+  destination: (req, file, cb) => {
+    shell.mkdir('-p', './client/src/assets/uploaded-images');
+    cb(null, './client/src/assets/uploaded-images');
   },
-  filename: function (req, file, cb) {
+  filename: (req, file, cb) => {
     cb(null, Date.now() + '-' + file.originalname);
   },
 });
@@ -18,6 +20,7 @@ const upload = multer({ storage });
 
 router.get('/', (req, res) => {
   res.json({
+    success: true,
     msg: 'Welcome to the server!',
   });
 });
@@ -32,6 +35,20 @@ router.get('/images', async (req, res) => {
       length: rows.length,
       rows,
     });
+  } catch (err) {
+    console.log('Error caught here!');
+    console.error(err);
+  }
+});
+
+// 2. Get by ID
+router.get('/images/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const found = await pool.query('SELECT * FROM images WHERE image_id = $1', [id]);
+    const imgPath = found.rows[0].path;
+
+    res.sendFile(path.resolve(imgPath));
   } catch (err) {
     console.log('Error caught here!');
     console.error(err);

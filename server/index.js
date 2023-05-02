@@ -10,6 +10,8 @@ app.use('/api', apiRoutes)
 // if path not specified, attach middleware to every paths
 app.use('', (req, res) => {
   res.status(404).json({
+    success: false,
+    status: 404,
     msg: 'Page not found, handled by this message.',
   });
 });
