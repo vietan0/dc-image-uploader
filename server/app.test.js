@@ -35,7 +35,7 @@ describe('API Routes', () => {
     expect(fakeGetById.mock.calls).toHaveLength(1);
   });
   test('postImage should work', async () => {
-    const fakeImagePath = `${__dirname}/water.jpg`;
+    const fakeImagePath = `${__dirname}/testImage.jpg`;
 
     fakePostImage.mockReturnValue({});
 

@@ -12,7 +12,6 @@ function makeApp({
 
   const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      console.log(req.file);
       shell.mkdir('-p', './client/src/assets/uploaded-images');
       cb(null, './client/src/assets/uploaded-images');
     },
