@@ -11,7 +11,7 @@
   - [x] GET by id
   - [x] POST
 - [x] Render uploaded image after successful POST request
-- [ ] Include unit & functional testing using `jest`
+- [x] Include unit & functional testing using `jest`
 - [ ] Install `ESLint`
 - [ ] Write frontend code
 - [ ] Find package to render code blocks (optional)

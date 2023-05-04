@@ -34,7 +34,7 @@ function App() {
     });
 
     const postRes = await res.json();
-    const { destination, filename } = postRes.newRow;
+    const { destination, filename } = postRes.newImage;
     setUploadedImg(destination.replace('client/', '') + '/' + filename);
   }
 
