@@ -12,7 +12,7 @@
   - [x] POST
 - [x] Render uploaded image after successful POST request
 - [x] Include unit & functional testing using `jest`
-- [ ] Install `ESLint`
+- [x] Install `ESLint`
 - [ ] Write frontend code
 - [ ] Find package to render code blocks (optional)
 - [ ] How to assign a URL for each image?

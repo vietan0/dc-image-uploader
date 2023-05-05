@@ -3,18 +3,21 @@ const multer = require('multer');
 const shell = require('shelljs');
 const path = require('path');
 
-function makeApp({ getAllImages, getById, postImage, deleteAllImages }) {
+function makeApp({
+  getAllImages, getById, postImage, deleteAllImages,
+}) {
   const app = express();
 
   app.use(express.urlencoded({ extended: false }), express.json());
 
   const storage = multer.diskStorage({
     destination: (req, file, cb) => {
+      console.log(req.file);
       shell.mkdir('-p', './client/src/assets/uploaded-images');
       cb(null, './client/src/assets/uploaded-images');
     },
     filename: (req, file, cb) => {
-      cb(null, Date.now() + '-' + file.originalname);
+      cb(null, `${Date.now()}-${file.originalname}`);
     },
   });
   const upload = multer({ storage });

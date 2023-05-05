@@ -1,4 +1,4 @@
-const Pool = require('pg').Pool;
+const { Pool } = require('pg');
 require('dotenv').config();
 const { nanoid } = require('nanoid');
 
@@ -27,7 +27,9 @@ const realDB = {
   },
 
   async postImage(file) {
-    const { fieldname, originalname, encoding, mimetype, destination, filename, path, size } = file;
+    const {
+      fieldname, originalname, encoding, mimetype, destination, filename, path, size,
+    } = file;
 
     const insertResult = await pool.query(
       'INSERT INTO images VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',

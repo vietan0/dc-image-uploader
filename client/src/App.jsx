@@ -35,7 +35,7 @@ function App() {
 
     const postRes = await res.json();
     const { destination, filename } = postRes.newImage;
-    setUploadedImg(destination.replace('client/', '') + '/' + filename);
+    setUploadedImg(`${destination.replace('client/', '')}/${filename}`);
   }
 
   return (
@@ -54,7 +54,12 @@ function App() {
           />
           <button type="submit">Upload Image</button>
         </form>
-        <button onClick={getAllImages}>Get All Images</button>
+        <button
+          onClick={getAllImages}
+          type="button"
+        >
+          Get All Images
+        </button>
         <pre>
           {fetchCount > 0
             ? JSON.stringify(allImages, null, 2)
@@ -63,7 +68,7 @@ function App() {
         {uploadedImg && (
           <img
             src={uploadedImg}
-            alt="uploaded image"
+            alt="upload"
           />
         )}
       </div>

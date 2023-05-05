@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rm client/src/assets/uploaded-images/*
+rm -f client/src/assets/uploaded-images/*
