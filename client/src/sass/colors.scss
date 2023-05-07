@@ -3,16 +3,18 @@ $white: white;
 $black: black;
 $grey-blue-93: hsl(0, 0%, 93%);
 $grey-blue-97: hsl(216, 38%, 97%);
+$grey-blue-90: hsl(216, 4%, 90%);
 $grey-blue-55: hsl(216, 4%, 55%);
+$grey-blue-30: hsl(216, 4%, 30%);
 $grey-blue-20: hsl(216, 4%, 20%);
 $grey-blue-15: hsl(216, 4%, 15%);
 $grey-blue-10: hsl(216, 4%, 10%);
 $light-blue: hsl(215, 81%, 77%);
 $dark-blue: hsl(228, 53%, 52%);
-$red: hsl(0, 61%, 57%);
+$green: hsl(120, 61%, 57%);
 
 @function hover($color, $deg: 1, $mode: lighten) {
-  @if $mode == darken {
+  @if $mode ==darken {
     @return adjust-color($color: $color, $lightness: $deg * -10%);
   }
 
@@ -32,10 +34,12 @@ $red: hsl(0, 61%, 57%);
   --drop-zone-bg: #{$grey-blue-97};
   --btn-bg: #{$light-blue};
   --btn-hover: #{hover($light-blue, 2, darken)};
+  --btn-disabled: #{$grey-blue-55};
   --btn-sec-bg: white;
   --btn-sec-hover: #{hover(white, 2, darken)};
   --container-bg: white;
-  --text-sec: #{$grey-blue-55};
+  --text-sec: #{$grey-blue-30};
+  --code-bg: #{$grey-blue-90};
 }
 
 :root.dark {
@@ -47,7 +51,8 @@ $red: hsl(0, 61%, 57%);
   --btn-sec-bg: #{$grey-blue-20};
   --btn-sec-hover: #{hover($grey-blue-20, 1)};
   --container-bg: #{$grey-blue-15};
-  --text-sec: #{$grey-blue-20};
+  --text-sec: #{$grey-blue-55};
+  --code-bg: #{$grey-blue-30};
 }
 
 @media (prefers-color-scheme: light) {}
@@ -65,9 +70,13 @@ $red: hsl(0, 61%, 57%);
 
 form#uploadFile {
   input {
-    &:first-of-type {
+    &#dragAndDrop {
       outline: 3px dashed var(--btn-bg);
       background-color: var(--drop-zone-bg);
+
+      &.isDragging {
+        outline: 3px dashed $green;
+      }
     }
   }
 
@@ -87,5 +96,19 @@ form#uploadFile {
       color: $white;
       background-color: var(--btn-hover);
     }
+
+    &:disabled {
+      color: inherit;
+      opacity: 0.4;
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: var(--btn-bg);
+      }
+    }
+  }
+
+  .fileName {
+    color: var(--text-sec);
   }
 }

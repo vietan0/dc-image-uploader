@@ -22,7 +22,16 @@ button {
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 240px;
+}
+
+img {
+  width: 100%;
+}
+
+pre, code {
+  font-family: 'Roboto Mono', 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
 }
 
 h1,

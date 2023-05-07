@@ -16,9 +16,13 @@
 - [ ] Write frontend code
   - [x] Decide on a typeface
   - [x] Comply with user's default color theme
-  - [ ] Render selected image before uploading
+  - [x] Render some indication when user is dragging
+  - [x] Render selected image before uploading
+  - [x] Add theme-switch button (non-functioning)
+  - [ ] Make theme-switch button functional
   - [ ] "Uploading" stage
   - [ ] Animation between states (`React Spring`)
+  - [ ] Animate something when user is dragging
   - [ ] Find package to render code blocks (optional)
 - [ ] How to assign a URL for each image?
 - [ ] Uninstall `shelljs`, use native `child_process` instead
