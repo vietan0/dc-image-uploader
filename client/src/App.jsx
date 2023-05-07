@@ -1,24 +1,17 @@
-import { useState } from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { useEffect, useState } from 'react';
 
 function App() {
-  const [allImages, setAllImages] = useState([]);
-  const [fetchCount, setFetchCount] = useState(0);
+  const [previewFileName, setPreviewFileName] = useState('');
   const [selectedFile, setSelectedFile] = useState({});
   const [uploadedImg, setUploadedImg] = useState();
-
-  function getAllImages(e) {
-    e.preventDefault();
-    fetch('/api/images')
-      .then((res) => res.json())
-      .then((data) => {
-        setFetchCount((prev) => prev + 1);
-        setAllImages(data);
-      });
-  }
-
+  const [darkMode, setDarkMode] = useState(false);
   const handleFileChange = (e) => {
+    console.log(e.target.files);
     if (e.target.files) {
       setSelectedFile(e.target.files[0]);
+      setPreviewFileName(e.target.files[0].name);
     }
   };
 
@@ -38,39 +31,60 @@ function App() {
     setUploadedImg(`${destination.replace('client/', '')}/${filename}`);
   }
 
+  useEffect(() => {
+    const root = document.documentElement;
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // set state on first load
+      root.classList.add('dark');
+      setDarkMode(true);
+      console.log('darkMode :>> ', darkMode);
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+      // listen for changes after first load
+      if (event.matches) {
+        root.classList.add('dark');
+        setDarkMode(true);
+      } else {
+        root.classList.remove('dark');
+        setDarkMode(false);
+      }
+      console.log('darkMode :>> ', darkMode);
+    });
+  }, []);
+
   return (
     <main className="App">
-      <h1>Image Uploader</h1>
-      <div className="card">
+      <h1 className="sr-only">Image Uploader</h1>
+      <div className="container">
+        <p className="title">Upload Your Image</p>
+        <p className="subtext">File should be .jpg, .png,…</p>
         <form
           method="POST"
           encType="multipart/form-data"
           onSubmit={uploadFile}
+          id="uploadFile"
         >
           <input
             type="file"
             name="fileFromReact"
+            id="dragAndDrop"
             onChange={handleFileChange}
           />
-          <button type="submit">Upload Image</button>
-        </form>
-        <button
-          onClick={getAllImages}
-          type="button"
-        >
-          Get All Images
-        </button>
-        <pre>
-          {fetchCount > 0
-            ? JSON.stringify(allImages, null, 2)
-            : 'Press button to get images from Postgres'}
-        </pre>
-        {uploadedImg && (
-          <img
-            src={uploadedImg}
-            alt="upload"
+          <label htmlFor="dragAndDrop">{previewFileName || 'Drag or drop your image here'}</label>
+          <p>or</p>
+          <input
+            type="file"
+            name="fileFromReact"
+            id="uploadButton"
+            onChange={handleFileChange}
           />
-        )}
+          <div className="last-row">
+            <label htmlFor="uploadButton">Choose a file</label>
+            <button type="submit">Upload </button>
+          </div>
+        </form>
       </div>
     </main>
   );

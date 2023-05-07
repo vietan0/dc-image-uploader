@@ -1,0 +1,100 @@
+@mixin debug {
+  outline: 3px solid purple;
+
+  > * {
+    outline: 3px dashed violet;
+  }
+}
+
+button {
+  border-radius: 8px;
+  border: none;
+  padding: 0.5rem 1rem;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+
+  .title {
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
+form#uploadFile {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  gap: 1rem;
+
+  input {
+    cursor: pointer;
+    // hide "No file selected"
+    color: transparent;
+
+    &::file-selector-button {
+      // hide "Browse..." button
+      display: none;
+    }
+
+    &:first-of-type {
+      width: 100%;
+      height: 320px;
+      border-radius: 8px;
+
+      background-image: url("/src/assets/image.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 40%;
+    }
+
+    &:last-of-type {
+      display: none;
+    }
+  }
+
+  label {
+    text-align: center;
+    cursor: pointer;
+
+    &[for=dragAndDrop] {
+      width: 100%;
+      position: absolute;
+      bottom: 140px;
+    }
+
+    &[for=uploadButton] {
+      width: fit-content;
+      border-radius: 8px;
+      border: none;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .last-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+}

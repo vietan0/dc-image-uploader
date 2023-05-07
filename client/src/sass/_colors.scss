@@ -1,0 +1,91 @@
+// define colors
+$white: white;
+$black: black;
+$grey-blue-93: hsl(0, 0%, 93%);
+$grey-blue-97: hsl(216, 38%, 97%);
+$grey-blue-55: hsl(216, 4%, 55%);
+$grey-blue-20: hsl(216, 4%, 20%);
+$grey-blue-15: hsl(216, 4%, 15%);
+$grey-blue-10: hsl(216, 4%, 10%);
+$light-blue: hsl(215, 81%, 77%);
+$dark-blue: hsl(228, 53%, 52%);
+$red: hsl(0, 61%, 57%);
+
+@function hover($color, $deg: 1, $mode: lighten) {
+  @if $mode == darken {
+    @return adjust-color($color: $color, $lightness: $deg * -10%);
+  }
+
+  @else {
+    @return adjust-color($color: $color, $lightness: $deg * 10%);
+  }
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+// define element colors
+:root {
+  --bg: #{$grey-blue-93};
+  --bg-shadow: #{hover($black, 9)};
+  --drop-zone-bg: #{$grey-blue-97};
+  --btn-bg: #{$light-blue};
+  --btn-hover: #{hover($light-blue, 2, darken)};
+  --btn-sec-bg: white;
+  --btn-sec-hover: #{hover(white, 2, darken)};
+  --container-bg: white;
+  --text-sec: #{$grey-blue-55};
+}
+
+:root.dark {
+  --bg: #{$grey-blue-10};
+  --bg-shadow: #{hover($black, 0.9)};
+  --drop-zone-bg: #{$grey-blue-20};
+  --btn-bg: #{$dark-blue};
+  --btn-hover: #{hover($dark-blue, 1, darken)};
+  --btn-sec-bg: #{$grey-blue-20};
+  --btn-sec-hover: #{hover($grey-blue-20, 1)};
+  --container-bg: #{$grey-blue-15};
+  --text-sec: #{$grey-blue-20};
+}
+
+@media (prefers-color-scheme: light) {}
+
+@media (prefers-color-scheme: dark) {}
+
+.App {
+  background-color: var(--bg);
+}
+
+.container {
+  background-color: var(--container-bg);
+  box-shadow: 0 16px 8px 8px var(--bg-shadow);
+}
+
+form#uploadFile {
+  input {
+    &:first-of-type {
+      outline: 3px dashed var(--btn-bg);
+      background-color: var(--drop-zone-bg);
+    }
+  }
+
+  label[for=uploadButton] {
+    background-color: var(--btn-sec-bg);
+    outline: 1px solid var(--btn-bg);
+
+    &:hover {
+      background-color: var(--btn-sec-hover);
+    }
+  }
+
+  button {
+    background-color: var(--btn-bg);
+
+    &:hover {
+      color: $white;
+      background-color: var(--btn-hover);
+    }
+  }
+}

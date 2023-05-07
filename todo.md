@@ -14,5 +14,11 @@
 - [x] Include unit & functional testing using `jest`
 - [x] Install `ESLint`
 - [ ] Write frontend code
-- [ ] Find package to render code blocks (optional)
+  - [x] Decide on a typeface
+  - [x] Comply with user's default color theme
+  - [ ] Render selected image before uploading
+  - [ ] "Uploading" stage
+  - [ ] Animation between states (`React Spring`)
+  - [ ] Find package to render code blocks (optional)
 - [ ] How to assign a URL for each image?
+- [ ] Uninstall `shelljs`, use native `child_process` instead
