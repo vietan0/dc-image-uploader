@@ -19,10 +19,15 @@
   - [x] Render some indication when user is dragging
   - [x] Render selected image before uploading
   - [x] Add theme-switch button (non-functioning)
-  - [ ] Make theme-switch button functional
-  - [ ] "Uploading" stage
+  - [x] Make theme-switch button functional
+  - [x] "Uploading" state
+  - [x] Assign a URL for each image
+  - [x] "Finished" state
+  - [x] Add banner noti when offline (optional)
+  - [ ] Organize Sass files by components (use `styled-components`?)
   - [ ] Animation between states (`React Spring`)
   - [ ] Animate something when user is dragging
   - [ ] Find package to render code blocks (optional)
-- [ ] How to assign a URL for each image?
+- [ ] Update tests for `app.post()`
+- [ ] App should reject non-image files
 - [ ] Uninstall `shelljs`, use native `child_process` instead

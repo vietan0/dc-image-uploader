@@ -29,7 +29,8 @@ img {
   width: 100%;
 }
 
-pre, code {
+pre,
+code {
   font-family: 'Roboto Mono', 'IBM Plex Mono', monospace;
   font-size: 0.85rem;
 }
@@ -46,6 +47,10 @@ p {
 
 h1 {
   line-height: 1;
+}
+
+a {
+  text-decoration: none;
 }
 
 .sr-only {

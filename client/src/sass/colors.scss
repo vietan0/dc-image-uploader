@@ -4,6 +4,7 @@ $black: black;
 $grey-blue-93: hsl(0, 0%, 93%);
 $grey-blue-97: hsl(216, 38%, 97%);
 $grey-blue-90: hsl(216, 4%, 90%);
+$grey-blue-70: hsl(216, 4%, 70%);
 $grey-blue-55: hsl(216, 4%, 55%);
 $grey-blue-30: hsl(216, 4%, 30%);
 $grey-blue-20: hsl(216, 4%, 20%);
@@ -38,8 +39,12 @@ $green: hsl(120, 61%, 57%);
   --btn-sec-bg: white;
   --btn-sec-hover: #{hover(white, 2, darken)};
   --container-bg: white;
+  --text: #{$grey-blue-10};
   --text-sec: #{$grey-blue-30};
   --code-bg: #{$grey-blue-90};
+  --loading-bar: #{$grey-blue-90};
+  --running-bar: #{$light-blue};
+  --link: #{$light-blue};
 }
 
 :root.dark {
@@ -51,8 +56,16 @@ $green: hsl(120, 61%, 57%);
   --btn-sec-bg: #{$grey-blue-20};
   --btn-sec-hover: #{hover($grey-blue-20, 1)};
   --container-bg: #{$grey-blue-15};
+  --text: white;
   --text-sec: #{$grey-blue-55};
   --code-bg: #{$grey-blue-30};
+  --loading-bar: #{$grey-blue-30};
+  --running-bar: #{$dark-blue};
+  --link: #{$light-blue};
+}
+
+body {
+  color: var(--text);
 }
 
 @media (prefers-color-scheme: light) {}
@@ -66,6 +79,25 @@ $green: hsl(120, 61%, 57%);
 .container {
   background-color: var(--container-bg);
   box-shadow: 0 16px 8px 8px var(--bg-shadow);
+}
+
+button {
+  background-color: var(--btn-bg);
+
+  &:hover {
+    color: $white;
+    background-color: var(--btn-hover);
+  }
+
+  &:disabled {
+    color: inherit;
+    opacity: 0.4;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: var(--btn-bg);
+    }
+  }
 }
 
 form#uploadFile {
@@ -89,24 +121,6 @@ form#uploadFile {
     }
   }
 
-  button {
-    background-color: var(--btn-bg);
-
-    &:hover {
-      color: $white;
-      background-color: var(--btn-hover);
-    }
-
-    &:disabled {
-      color: inherit;
-      opacity: 0.4;
-      cursor: not-allowed;
-
-      &:hover {
-        background-color: var(--btn-bg);
-      }
-    }
-  }
 
   .fileName {
     color: var(--text-sec);

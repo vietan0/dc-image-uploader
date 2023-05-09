@@ -8,6 +8,14 @@
   }
 }
 
+@mixin focus {
+  outline: 2px solid hotpink;
+}
+
+a {
+  color: var(--link);
+}
+
 code {
   background-color: var(--code-bg);
   border-radius: 4px;
@@ -19,7 +27,6 @@ button {
   border-radius: 8px;
   border: none;
   padding: 0.5rem 1rem;
-
 }
 
 .App {
@@ -36,16 +43,17 @@ button {
   width: 100%;
   max-width: 500px;
 
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-
-
   .title {
     font-size: 1.75rem;
     font-weight: 700;
     letter-spacing: -0.5px;
   }
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 
   p {
     text-align: center;
@@ -119,4 +127,84 @@ form#uploadFile {
     justify-content: space-between;
     gap: 1rem;
   }
+}
+
+img[alt=preUploadFileSrc] {
+  height: 320px;
+  object-fit: contain;
+  left: 0;
+}
+
+.loading-bar {
+  width: 100%;
+  height: 10px;
+  margin-top: 20px;
+  border-radius: 100px;
+  background-color: var(--loading-bar);
+  overflow: hidden;
+
+  .running-bar {
+    width: 120px;
+    height: 10px;
+    border-radius: 100px;
+    background-color: var(--running-bar);
+    animation: loading 1s ease-out infinite;
+  }
+}
+
+@keyframes loading {
+  from {
+    transform: translateX(-120px);
+  }
+
+  to {
+    transform: translateX(500px);
+  }
+}
+
+.Finished {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .link {
+    outline: 3px solid var(--code-bg);
+    background-color: var(--btn-sec-bg);
+    border-radius: 8px;
+    display: flex;
+
+    a {
+      margin: 0 16px;
+      padding: 16px 0;
+      white-space: nowrap;
+      overflow: scroll;
+      text-overflow: ellipsis;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.Banner {
+  background-color: var(--drop-zone-bg);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  position: fixed;
+  width: 100%;
+  padding: 4px 0;
+  top: 0;
+
+  font-size: 0.85rem;
+
+  svg {
+    width: 20px;
+  }
+
 }
