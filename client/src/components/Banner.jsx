@@ -1,6 +1,8 @@
+import StyledBanner from '../styles/StyledBanner';
+
 export default function Banner() {
   return (
-    <div className="Banner">
+    <StyledBanner>
       <svg
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
@@ -11,6 +13,6 @@ export default function Banner() {
         />
       </svg>
       <span>You are offline</span>
-    </div>
+    </StyledBanner>
   );
 }

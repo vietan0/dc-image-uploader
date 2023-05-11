@@ -24,10 +24,13 @@
   - [x] Assign a URL for each image
   - [x] "Finished" state
   - [x] Add banner noti when offline (optional)
-  - [ ] Organize Sass files by components (use `styled-components`?)
+  - [x] Organize Sass files by components (use `styled-components`?)
+  - [ ] Use React's `Suspense` and `lazy` for "Uploading" state
   - [ ] Animation between states (`React Spring`)
   - [ ] Animate something when user is dragging
   - [ ] Find package to render code blocks (optional)
+- [ ] Use `crypto.randomUUID()` instead of `nanoid`
 - [ ] Update tests for `app.post()`
 - [ ] App should reject non-image files
 - [ ] Uninstall `shelljs`, use native `child_process` instead
+- [ ] Look into web performance (Fireship)

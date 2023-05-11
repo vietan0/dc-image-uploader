@@ -1,5 +1,6 @@
 import { string } from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import StyledFinished from '../styles/StyledFinished';
 
 function Copy() {
   return (
@@ -34,7 +35,7 @@ function Check() {
 }
 
 export default function Finished({ preUploadFileSrc, imageId }) {
-  const [fullUrl, setFullUrl] = useState('');
+  const [fullUrl] = useState(`${window.location.origin}/api/images/${imageId}`);
   const [copied, setCopied] = useState(false);
 
   function copy() {
@@ -42,18 +43,8 @@ export default function Finished({ preUploadFileSrc, imageId }) {
     setCopied(true);
   }
 
-  useEffect(() => {
-    const isProd = import.meta.env.PROD;
-    const { protocol } = window.location;
-    const host = window.location.hostname;
-    const publicPath = isProd ? import.meta.env.VITE_PUBLIC_PATH : '/';
-    const port = isProd ? '' : `:${import.meta.env.VITE_APP_PORT || 5173}`;
-
-    setFullUrl(`${protocol}//${host}${port}${publicPath}api/images/${imageId}`);
-  }, []);
-
   return (
-    <div className="Finished">
+    <StyledFinished>
       <p className="title">Upload Successful!</p>
       <img
         src={preUploadFileSrc}
@@ -74,7 +65,7 @@ export default function Finished({ preUploadFileSrc, imageId }) {
           {copied ? <Check /> : <Copy />}
         </button>
       </div>
-    </div>
+    </StyledFinished>
   );
 }
 

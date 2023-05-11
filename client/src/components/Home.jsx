@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
-import { func, string } from 'prop-types';
+import { bool, func, string } from 'prop-types';
 import ThemeSwitcher from './ThemeSwitcher';
+import StyledHome from '../styles/StyledHome';
 
 export default function Home({
+  darkMode,
+  setDarkMode,
   setUploading,
   setFinished,
   preUploadFileSrc,
@@ -11,7 +14,6 @@ export default function Home({
 }) {
   const [preUploadFileName, setPreUploadFileName] = useState('');
   const [preUploadFileObject, setPreUploadFileObject] = useState({});
-  const [darkMode, setDarkMode] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [dropZoneClassName, setDropZoneClassName] = useState('');
 
@@ -111,15 +113,15 @@ export default function Home({
   }, [isDragging, preUploadFileName]);
 
   return (
-    <div className="Home">
-      <div className="header">
-        <p className="title">Upload Your Image</p>
+    <StyledHome>
+      <header>
+        <p>Upload Your Image</p>
         <ThemeSwitcher
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
-      </div>
-      <p className="subtext">
+      </header>
+      <p>
         File should be
         {' '}
         <code>.jpg</code>
@@ -132,7 +134,6 @@ export default function Home({
         method="POST"
         encType="multipart/form-data"
         onSubmit={uploadFile}
-        id="uploadFile"
       >
         <label htmlFor="dragAndDrop">
           <input
@@ -170,11 +171,13 @@ export default function Home({
           </button>
         </div>
       </form>
-    </div>
+    </StyledHome>
   );
 }
 
 Home.propTypes = {
+  darkMode: bool.isRequired,
+  setDarkMode: func.isRequired,
   setUploading: func.isRequired,
   setFinished: func.isRequired,
   preUploadFileSrc: string.isRequired,

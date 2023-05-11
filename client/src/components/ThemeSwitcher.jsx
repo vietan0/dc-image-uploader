@@ -1,4 +1,5 @@
 import { bool, func } from 'prop-types';
+import StyledThemeSwitcher from '../styles/StyledThemeSwitcher';
 
 function Sun() {
   return (
@@ -34,7 +35,7 @@ function Moon() {
 
 export default function ThemeSwitcher({ darkMode, setDarkMode }) {
   return (
-    <label htmlFor="themeSwitcher">
+    <StyledThemeSwitcher>
       <input
         type="checkbox"
         id="themeSwitcher"
@@ -42,7 +43,7 @@ export default function ThemeSwitcher({ darkMode, setDarkMode }) {
         checked={darkMode}
       />
       {darkMode ? <Sun /> : <Moon />}
-    </label>
+    </StyledThemeSwitcher>
   );
 }
 
