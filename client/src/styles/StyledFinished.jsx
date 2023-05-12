@@ -10,6 +10,7 @@ export default styled.div`
     background-color: ${({ theme }) => theme.btnSecBg};
     border-radius: 8px;
     display: flex;
+    justify-content: space-between;
 
     a {
       margin: 0 16px;

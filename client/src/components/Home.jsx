@@ -75,35 +75,6 @@ export default function Home({
   }
 
   useEffect(() => {
-    // sync OS's theme with state and UI
-    const html = document.documentElement;
-
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      // set state on first load
-      html.classList.add('dark');
-      setDarkMode(true);
-    }
-
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-      // listen for changes after first load
-      if (event.matches) {
-        html.classList.add('dark');
-        setDarkMode(true);
-      } else {
-        html.classList.remove('dark');
-        setDarkMode(false);
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    // change theme when state changes
-    const html = document.documentElement;
-    if (darkMode) html.classList.add('dark');
-    else html.classList.remove('dark');
-  }, [darkMode]);
-
-  useEffect(() => {
     // set class of drop-zone <input> element for CSS
     if (isDragging) setDropZoneClassName((prev) => `${prev} isDragging`);
     else setDropZoneClassName((prev) => prev.replace(' isDragging', ''));

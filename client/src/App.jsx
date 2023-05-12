@@ -35,6 +35,35 @@ function App() {
     });
   }, [online]);
 
+  useEffect(() => {
+    // change theme when OS settings change
+    const html = document.documentElement;
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // set state on first load
+      html.classList.add('dark');
+      setDarkMode(true);
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+      // listen for changes after first load
+      if (event.matches) {
+        html.classList.add('dark');
+        setDarkMode(true);
+      } else {
+        html.classList.remove('dark');
+        setDarkMode(false);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    // change theme when React state changes
+    const html = document.documentElement;
+    if (darkMode) html.classList.add('dark');
+    else html.classList.remove('dark');
+  }, [darkMode]);
+
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Reset />

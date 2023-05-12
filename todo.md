@@ -28,6 +28,7 @@
   - [ ] Use React's `Suspense` and `lazy` for "Uploading" state
   - [ ] Animation between states (`React Spring`)
   - [ ] Animate something when user is dragging
+  - [ ] Add a link in "Finished" to go back home (reset all states)
   - [ ] Find package to render code blocks (optional)
 - [ ] Use `crypto.randomUUID()` instead of `nanoid`
 - [ ] Update tests for `app.post()`
