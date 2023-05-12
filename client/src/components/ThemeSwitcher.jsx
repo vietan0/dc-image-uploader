@@ -1,4 +1,5 @@
 import { bool, func } from 'prop-types';
+import { motion } from 'framer-motion';
 import StyledThemeSwitcher from '../styles/StyledThemeSwitcher';
 
 function Sun() {
@@ -42,7 +43,12 @@ export default function ThemeSwitcher({ darkMode, setDarkMode }) {
         onChange={() => setDarkMode((prev) => !prev)}
         checked={darkMode}
       />
-      {darkMode ? <Sun /> : <Moon />}
+      <div className="iconContainer">
+        <motion.div animate={{ y: darkMode ? -24 : 0 }}>
+          <Sun />
+          <Moon />
+        </motion.div>
+      </div>
     </StyledThemeSwitcher>
   );
 }

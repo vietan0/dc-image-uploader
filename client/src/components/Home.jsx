@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { bool, func, string } from 'prop-types';
+import { motion } from 'framer-motion';
 import ThemeSwitcher from './ThemeSwitcher';
 import StyledHome from '../styles/StyledHome';
 
@@ -107,7 +108,12 @@ export default function Home({
         onSubmit={uploadFile}
       >
         <label htmlFor="dragAndDrop">
-          <input
+          <motion.input
+            animate={{
+              scale: isDragging ? 1.03 : 1,
+              // eslint-disable-next-line no-nested-ternary
+              outline: `3px dashed ${isDragging ? 'hsl(120, 61%, 57%)' : darkMode ? 'hsl(228, 53%, 52%)' : 'hsl(215, 81%, 72%)'}`,
+            }}
             type="file"
             name="fileFromReact"
             id="dragAndDrop"

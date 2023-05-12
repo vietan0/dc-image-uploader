@@ -8,11 +8,10 @@ const grey20 = 'hsl(216, 4%, 20%)';
 const grey15 = 'hsl(216, 4%, 15%)';
 const grey10 = 'hsl(216, 4%, 10%)';
 const grey8 = 'hsl(216, 4%, 8%)';
-const lightBlue = 'hsl(215, 81%, 77%)';
+const lightBlue = 'hsl(215, 81%, 72%)';
 const lightBlueHover = 'hsl(215, 81%, 60%)';
 const darkBlue = 'hsl(228, 53%, 52%)';
 const darkBlueHover = 'hsl(228, 53%, 62%)';
-const lightGreen = 'hsl(120, 61%, 57%)';
 
 const lightTheme = {
   bg: grey93,
@@ -28,8 +27,7 @@ const lightTheme = {
   textSec: grey30,
   codeBg: grey90,
   loadingBar: grey90,
-  link: lightBlue,
-  dropZoneDragging: lightGreen,
+  link: darkBlue,
 };
 
 const darkTheme = {
@@ -46,7 +44,6 @@ const darkTheme = {
   codeBg: grey30,
   loadingBar: grey30,
   link: lightBlue,
-  dropZoneDragging: lightGreen,
 };
 
 export { lightTheme, darkTheme };

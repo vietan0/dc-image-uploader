@@ -93,7 +93,8 @@ const Base = createGlobalStyle`
     }
 
     &:disabled {
-      color: inherit;
+      color: currentColor;
+      background-color: inherit;
       opacity: 0.4;
       cursor: not-allowed;
     }

@@ -1,6 +1,8 @@
-import { string } from 'prop-types';
+import { bool, func, string } from 'prop-types';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import StyledFinished from '../styles/StyledFinished';
+import ThemeSwitcher from './ThemeSwitcher';
 
 function Copy() {
   return (
@@ -34,7 +36,9 @@ function Check() {
   );
 }
 
-export default function Finished({ preUploadFileSrc, imageId }) {
+export default function Finished({
+  darkMode, setDarkMode, preUploadFileSrc, imageId,
+}) {
   const [fullUrl] = useState(`${window.location.origin}/api/images/${imageId}`);
   const [copied, setCopied] = useState(false);
 
@@ -45,7 +49,13 @@ export default function Finished({ preUploadFileSrc, imageId }) {
 
   return (
     <StyledFinished>
-      <p className="title">Upload Successful!</p>
+      <header>
+        <p>Upload Successful!</p>
+        <ThemeSwitcher
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+        />
+      </header>
       <img
         src={preUploadFileSrc}
         alt="preUploadFileSrc"
@@ -62,7 +72,14 @@ export default function Finished({ preUploadFileSrc, imageId }) {
           type="button"
           onClick={copy}
         >
-          {copied ? <Check /> : <Copy />}
+          <motion.div
+            className="framer"
+            animate={{ y: copied ? -54 : 0 }}
+          >
+            <Copy />
+            <div className="empty" />
+            <Check />
+          </motion.div>
         </button>
       </div>
     </StyledFinished>
@@ -70,6 +87,8 @@ export default function Finished({ preUploadFileSrc, imageId }) {
 }
 
 Finished.propTypes = {
+  darkMode: bool.isRequired,
+  setDarkMode: func.isRequired,
   preUploadFileSrc: string.isRequired,
   imageId: string.isRequired,
 };

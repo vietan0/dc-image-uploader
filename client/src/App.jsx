@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { motion } from 'framer-motion';
 import Home from './components/Home';
 import Uploading from './components/Uploading';
 import Finished from './components/Finished';
@@ -71,7 +72,11 @@ function App() {
       <main className="App">
         <h1 className="sr-only">Image Uploader</h1>
         {online || <Banner />}
-        <div className="container">
+        <motion.div
+          className="container"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+        >
           {onHome && (
             <Home
               darkMode={darkMode}
@@ -86,11 +91,13 @@ function App() {
           {uploading && <Uploading />}
           {finished && (
             <Finished
+              darkMode={darkMode}
+              setDarkMode={setDarkMode}
               preUploadFileSrc={preUploadFileSrc}
               imageId={imageId}
             />
           )}
-        </div>
+        </motion.div>
       </main>
     </ThemeProvider>
   );

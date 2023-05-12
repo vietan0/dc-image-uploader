@@ -20,7 +20,7 @@ export default styled.label.attrs({
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.Bg};
+    background-color: ${({ theme }) => theme.bg};
   }
 
   &:focus,
@@ -28,7 +28,13 @@ export default styled.label.attrs({
     outline: 2px solid hotpink;
   }
 
+  .iconContainer {
+    height: 24px;
+    overflow: hidden;
+  }
+  
   svg {
     fill: currentColor;
+    display: block;
   }
 `;

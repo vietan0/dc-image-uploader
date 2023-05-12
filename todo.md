@@ -25,11 +25,12 @@
   - [x] "Finished" state
   - [x] Add banner noti when offline (optional)
   - [x] Organize Sass files by components (use `styled-components`?)
-  - [ ] Use React's `Suspense` and `lazy` for "Uploading" state
-  - [ ] Animation between states (`React Spring`)
-  - [ ] Animate something when user is dragging
+  - [x] Animation between states (`Framer Motion`)
+  - [x] Animate something when user is dragging
+  - [ ] Organize components and their style together
   - [ ] Add a link in "Finished" to go back home (reset all states)
   - [ ] Find package to render code blocks (optional)
+  - [ ] Use React's `Suspense` and `lazy` for "Uploading" state
 - [ ] Use `crypto.randomUUID()` instead of `nanoid`
 - [ ] Update tests for `app.post()`
 - [ ] App should reject non-image files
