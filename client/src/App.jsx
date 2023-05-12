@@ -94,6 +94,8 @@ function App() {
               darkMode={darkMode}
               setDarkMode={setDarkMode}
               preUploadFileSrc={preUploadFileSrc}
+              setPreUploadFileSrc={setPreUploadFileSrc}
+              setFinished={setFinished}
               imageId={imageId}
             />
           )}

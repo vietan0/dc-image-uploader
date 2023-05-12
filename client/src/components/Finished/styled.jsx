@@ -16,6 +16,29 @@ export default styled.div`
     }
   }
 
+  > button {
+    background-color: transparent;
+    width: fit-content;
+    padding: 0 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.btnSecHover};
+    }
+
+    svg {
+      width: 16px;
+      fill: currentColor;
+    }
+  }
+
+  img {
+    object-fit: contain;
+    max-height: 320px;
+  }
+  
   .link {
     outline: 3px solid ${({ theme }) => theme.codeBg};
     background-color: ${({ theme }) => theme.btnSecBg};
@@ -37,7 +60,7 @@ export default styled.div`
       align-items: center;
       overflow: hidden;
       padding: 1rem;
-      
+
       .framer {
         width: 24px;
         height: 24px;

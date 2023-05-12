@@ -28,8 +28,7 @@
   - [x] Animation between states (`Framer Motion`)
   - [x] Animate something when user is dragging
   - [x] Organize components and their style together
-  - [ ] Add a link in "Finished" to go back home (reset all states)
-  - [ ] Find package to render code blocks (optional)
+  - [x] Add a link in "Finished" to go back home (reset all states)
   - [ ] Use React's `Suspense` and `lazy` for "Uploading" state
 - [ ] Use `crypto.randomUUID()` instead of `nanoid`
 - [ ] Update tests for `app.post()`
