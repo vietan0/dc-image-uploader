@@ -1,4 +1,9 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const loading = keyframes`
+  from { transform: translateX(-120px); } 
+  to { transform: translateX(500px); }
+`;
 
 export default styled.div`
   .loading-bar {
@@ -14,17 +19,7 @@ export default styled.div`
       height: 10px;
       border-radius: 100px;
       background-color: ${({ theme }) => theme.primary};
-      animation: loading 1s ease-out infinite;
-    }
-  }
-
-  @keyframes loading {
-    from {
-      transform: translateX(-120px);
-    }
-
-    to {
-      transform: translateX(500px);
+      animation: ${loading} 1s ease-out infinite;
     }
   }
 `;
