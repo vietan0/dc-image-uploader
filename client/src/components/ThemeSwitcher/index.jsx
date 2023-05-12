@@ -1,6 +1,6 @@
 import { bool, func } from 'prop-types';
 import { motion } from 'framer-motion';
-import StyledThemeSwitcher from '../styles/StyledThemeSwitcher';
+import StyledThemeSwitcher from './styled';
 
 function Sun() {
   return (

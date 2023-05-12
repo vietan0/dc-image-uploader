@@ -1,4 +1,4 @@
-import StyledBanner from '../styles/StyledBanner';
+import StyledBanner from './styled';
 
 export default function Banner() {
   return (

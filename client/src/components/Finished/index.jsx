@@ -1,8 +1,8 @@
 import { bool, func, string } from 'prop-types';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import StyledFinished from '../styles/StyledFinished';
-import ThemeSwitcher from './ThemeSwitcher';
+import StyledFinished from './styled';
+import ThemeSwitcher from '../ThemeSwitcher';
 
 function Copy() {
   return (

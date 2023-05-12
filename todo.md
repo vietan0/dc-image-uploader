@@ -27,7 +27,7 @@
   - [x] Organize Sass files by components (use `styled-components`?)
   - [x] Animation between states (`Framer Motion`)
   - [x] Animate something when user is dragging
-  - [ ] Organize components and their style together
+  - [x] Organize components and their style together
   - [ ] Add a link in "Finished" to go back home (reset all states)
   - [ ] Find package to render code blocks (optional)
   - [ ] Use React's `Suspense` and `lazy` for "Uploading" state

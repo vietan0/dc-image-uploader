@@ -1,4 +1,4 @@
-import StyledUploading from '../styles/StyledUploading';
+import StyledUploading from './styled';
 
 export default function Loading() {
   return (

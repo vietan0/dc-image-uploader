@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { bool, func, string } from 'prop-types';
 import { motion } from 'framer-motion';
-import ThemeSwitcher from './ThemeSwitcher';
-import StyledHome from '../styles/StyledHome';
+import ThemeSwitcher from '../ThemeSwitcher';
+import StyledHome from './styled';
 
 export default function Home({
   darkMode,
