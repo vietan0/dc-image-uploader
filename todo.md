@@ -33,5 +33,5 @@
 - [x] Use `crypto.randomUUID()` instead of `nanoid`
 - [ ] Update tests for `app.post()`
 - [ ] App should reject non-image files
-- [ ] Uninstall `shelljs`, use native `child_process` instead
+- [x] Uninstall `shelljs`, use native `fs` instead
 - [ ] Look into web performance (Fireship)

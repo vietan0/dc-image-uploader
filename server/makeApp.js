@@ -1,6 +1,6 @@
+const { mkdirSync, rmSync } = require('fs');
 const express = require('express');
 const multer = require('multer');
-const shell = require('shelljs');
 const path = require('path');
 
 function makeApp({
@@ -12,7 +12,7 @@ function makeApp({
 
   const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      shell.mkdir('-p', './client/src/assets/uploaded-images');
+      mkdirSync('client/src/assets/uploaded-images', { recursive: true });
       cb(null, './client/src/assets/uploaded-images');
     },
     filename: (req, file, cb) => {
@@ -74,7 +74,7 @@ function makeApp({
   // 3. Delete image
   app.delete('/api/images', async (req, res) => {
     try {
-      shell.exec('sh ./server/script.sh');
+      rmSync('client/src/assets/uploaded-images', { recursive: true });
       await deleteAllImages();
 
       res.json({ success: true });
