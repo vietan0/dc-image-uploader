@@ -9,6 +9,17 @@ export default styled.div`
     text-align: center;
   }
 
+  .condition {
+    border-radius: 4px;
+    padding: 0.5rem;
+    width: fit-content;
+    align-self: center;
+
+    &.error {
+      outline: 4px solid ${({ theme }) => theme.error};
+    }
+  }
+
   header {
     display: flex;
     justify-content: space-between;

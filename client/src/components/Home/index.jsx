@@ -17,8 +17,15 @@ export default function Home({
   const [preUploadFileObject, setPreUploadFileObject] = useState({});
   const [isDragging, setIsDragging] = useState(false);
   const [dropZoneClassName, setDropZoneClassName] = useState('');
+  const [uploadError, setUploadError] = useState(false);
 
   function updateFileStates(file) {
+    if (!file.type.includes('image')) {
+      setUploadError(true);
+      return;
+    }
+
+    setUploadError(false);
     setPreUploadFileObject(file);
     setPreUploadFileName(file.name);
 
@@ -93,7 +100,7 @@ export default function Home({
           setDarkMode={setDarkMode}
         />
       </header>
-      <p>
+      <p className={`condition ${uploadError && 'error'}`}>
         File should be
         {' '}
         <code>.jpg</code>
