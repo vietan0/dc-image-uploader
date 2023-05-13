@@ -12,6 +12,7 @@ const lightBlue = 'hsl(215, 81%, 72%)';
 const lightBlueHover = 'hsl(215, 81%, 60%)';
 const darkBlue = 'hsl(228, 53%, 52%)';
 const darkBlueHover = 'hsl(228, 53%, 62%)';
+const error = 'hsl(0, 51%, 54%)';
 
 const lightTheme = {
   bg: grey93,
@@ -28,6 +29,7 @@ const lightTheme = {
   codeBg: grey90,
   loadingBar: grey90,
   link: darkBlue,
+  error,
 };
 
 const darkTheme = {
@@ -44,6 +46,7 @@ const darkTheme = {
   codeBg: grey30,
   loadingBar: grey30,
   link: lightBlue,
+  error,
 };
 
 export { lightTheme, darkTheme };
