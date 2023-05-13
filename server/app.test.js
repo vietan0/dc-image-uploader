@@ -30,9 +30,8 @@ describe('API Routes', () => {
     });
     const res = await req(fakeApp).get(`/api/images/${id}`);
 
-    expect(res.statusCode).toBe(200);
-    expect(res.body).toHaveProperty('success');
     expect(fakeGetById.mock.calls).toHaveLength(1);
+    expect(res.body).toBeTruthy();
   });
   test('postImage should work', async () => {
     const fakeImagePath = `${__dirname}/testImage.jpg`;

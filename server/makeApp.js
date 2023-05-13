@@ -52,7 +52,6 @@ function makeApp({
       const image = await getById(req.params.id);
 
       res.sendFile(path.resolve(image.path));
-      // res.json({ success: true, path: path.resolve(image.path) });
     } catch (err) {
       errHandler(err);
     }

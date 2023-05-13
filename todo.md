@@ -31,7 +31,7 @@
   - [x] Add a link in "Finished" to go back home (reset all states)
   - [ ] Use React's `Suspense` and `lazy` for "Uploading" state
 - [x] Use `crypto.randomUUID()` instead of `nanoid`
-- [ ] Update tests for `app.post()`
+- [x] Update tests
 - [x] App should reject non-image files
 - [x] Uninstall `shelljs`, use native `child_process` instead
 - [ ] Look into web performance (Fireship)
