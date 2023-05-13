@@ -30,7 +30,7 @@
   - [x] Organize components and their style together
   - [x] Add a link in "Finished" to go back home (reset all states)
   - [ ] Use React's `Suspense` and `lazy` for "Uploading" state
-- [ ] Use `crypto.randomUUID()` instead of `nanoid`
+- [x] Use `crypto.randomUUID()` instead of `nanoid`
 - [ ] Update tests for `app.post()`
 - [ ] App should reject non-image files
 - [ ] Uninstall `shelljs`, use native `child_process` instead

@@ -1,6 +1,5 @@
 const { Pool } = require('pg');
 require('dotenv').config();
-const { nanoid } = require('nanoid');
 
 const pool = new Pool({
   user: 'postgres',
@@ -33,7 +32,17 @@ const realDB = {
 
     const insertResult = await pool.query(
       'INSERT INTO images VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
-      [nanoid(), fieldname, originalname, encoding, mimetype, destination, filename, path, size],
+      [
+        crypto.randomUUID(),
+        fieldname,
+        originalname,
+        encoding,
+        mimetype,
+        destination,
+        filename,
+        path,
+        size,
+      ],
     );
     const image = insertResult.rows[0];
 
