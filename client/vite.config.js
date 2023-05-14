@@ -14,4 +14,8 @@ export default defineConfig({
   css: {
     devSourcemap: true,
   },
+  build: {
+    outDir: '../dist',
+    emptyOutDir: true,
+  },
 });

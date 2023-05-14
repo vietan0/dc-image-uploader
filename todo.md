@@ -13,7 +13,7 @@
 - [x] Render uploaded image after successful POST request
 - [x] Include unit & functional testing using `jest`
 - [x] Install `ESLint`
-- [ ] Write frontend code
+- [x] Write frontend code
   - [x] Decide on a typeface
   - [x] Comply with user's default color theme
   - [x] Render some indication when user is dragging
@@ -29,9 +29,8 @@
   - [x] Animate something when user is dragging
   - [x] Organize components and their style together
   - [x] Add a link in "Finished" to go back home (reset all states)
-  - [ ] Use React's `Suspense` and `lazy` for "Uploading" state
 - [x] Use `crypto.randomUUID()` instead of `nanoid`
 - [x] Update tests
 - [x] App should reject non-image files
 - [x] Uninstall `shelljs`, use native `child_process` instead
-- [ ] Look into web performance (Fireship)
+- [ ] Deploy using Firebase

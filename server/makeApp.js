@@ -8,6 +8,7 @@ function makeApp({
 }) {
   const app = express();
 
+  app.use(express.static(path.resolve(__dirname, '../dist')));
   app.use(express.urlencoded({ extended: false }), express.json());
 
   const storage = multer.diskStorage({

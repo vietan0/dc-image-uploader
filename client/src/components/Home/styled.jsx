@@ -51,12 +51,11 @@ export default styled.div`
         height: 320px;
         border-radius: 8px;
 
-        background-image: url('/src/assets/image.svg');
+        background-image: url('image.svg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: 40%;
 
-        outline: 3px dashed ${({ theme }) => theme.primary};
         background-color: ${({ theme }) => theme.dropZoneBg};
 
         &.isDragging {

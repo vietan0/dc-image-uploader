@@ -45,8 +45,8 @@ export default function ThemeSwitcher({ darkMode, setDarkMode }) {
       />
       <div className="iconContainer">
         <motion.div animate={{ y: darkMode ? -24 : 0 }}>
-          <Sun />
           <Moon />
+          <Sun />
         </motion.div>
       </div>
     </StyledThemeSwitcher>
