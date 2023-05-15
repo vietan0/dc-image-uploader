@@ -18,7 +18,7 @@ const supabase = {
   async postImage(file) {
     const uploadInfo = { image_id: crypto.randomUUID(), ...file };
     const { data, error } = await client.from('images').insert([uploadInfo]).select();
-    return data;
+    return data[0];
   },
   async deleteAllImages() {
     const { data, error } = await client.from('images').delete().neq('image_id', '');
