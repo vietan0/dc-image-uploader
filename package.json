@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
+    "start": "npm run build-client && node server",
     "build-client": "npm i && cd client && npm i && npm run build",
     "dev-server": "nodemon server",
     "dev-client": "cd client && npm run dev",
