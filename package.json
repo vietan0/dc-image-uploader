@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build-client && npm run start-server",
-    "start-server": "npm i && node server",
-    "build-client": "cd client && npm i && npm run build",
+    "start": "node server",
+    "build-client": "npm i && cd client && npm i && npm run build",
     "dev-server": "nodemon server",
     "dev-client": "cd client && npm run dev",
     "dev": "concurrently -n 📚,💻 \"npm run dev-server\" \"npm run dev-client\"",
