@@ -74,8 +74,8 @@ function makeApp({
   // 3. Delete image
   app.delete('/api/images', async (req, res) => {
     try {
-      rmSync('client/src/assets/uploaded-images', { recursive: true });
       await deleteAllImages();
+      rmSync('client/src/assets/uploaded-images', { recursive: true });
 
       res.json({ success: true });
     } catch (err) {
