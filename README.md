@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://dc-image-uploader-two.vercel.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://devchallenges.io/solutions/3D0CAMynaFJw0bxcN70g">
       Solution
     </a>
     <span> | </span>
@@ -31,7 +31,6 @@
 - [Features](#features)
 - [How to use](#how-to-use)
 - [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
 
 <!-- OVERVIEW -->
 
@@ -41,10 +40,11 @@
 
 ### Built With
 
-- [React](https://reactjs.org/)
-- [styled-components](https://styled-components.com/)
-- [PostgreSQL](https://www.postgresql.org/)
-- [Jest](https://jestjs.io/)
+- [React](https://reactjs.org/) for frontend
+- [styled-components](https://styled-components.com/) for styling
+- [Framer Motion](https://www.framer.com/motion/) for a tiny bit of animation
+- [Supabase](https://supabase.com/) for database
+- [Jest](https://jestjs.io/) and [Supertest](https://github.com/ladjs/supertest) for some testing
 
 ## Features
 
